@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>noteMaker</title>
+    </head>
+    <body bgcolor="">
+        <h1 align="center"><u>NoteMaker</u></h1>
+        <h2>Welcome {{user}}</h2>
+
+        <h3 align="right">total notes:{{c}}</h3>
+        <a href="{% url 'notesapp:logout' %}"><button>logout</button></a>
+        <a href="{% url 'notesapp:create' %}"><button>add notes</button></a
+        ><br /><br />
+
+        {%for x in object %}
+        <li>
+            <a href=" edit/{{x.id}}">{{ x.title }}</a> <br />
+            {{x.show}}..<br />
+            {{x.tags}}<br />
+            {{x.created}}<br />
+            {{x.updated}}<br />
+            <a href="delete/{{x.id}}"><button>delete note</button></a
+            ><br /><br />
+        </li>
+        <br /><br />
+        {% endfor %}
+    </body>
+</html>
